@@ -1,0 +1,266 @@
+.clearfix() {
+    &::after {
+        display: block;
+        content: "";
+        clear: both;
+    }
+}
+
+@base-font-size-px: 14px;
+@base-font-size: 1rem;
+@base-line-height-px: 20px;
+@base-line-height: unit(@base-line-height-px / @base-font-size-px);
+
+@background-color-gray: #fafafa;
+@border-color-gray: #e0e0e0;
+
+@tab-border-bottom-color: #18BC9C;
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: @base-font-size-px;
+}
+body {
+    font: @base-font-size/@base-line-height -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; // 21px line height
+    background-color: #fff;
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+}
+
+#pn-header h1 {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#p-search {
+    float: right;
+    margin-left: 0;
+    margin-right: 0 !important;
+    margin-top: 15px;
+
+    form {
+        margin-top: 0;
+    }
+}
+div#simpleSearch {
+    margin-top: 0;
+    border: 0;
+    height: auto;
+
+    #searchInput {
+        font-size: 1rem;
+        line-height: @base-line-height;
+        padding: 5px 8px;
+    }
+
+    #searchButton,
+    #mw-searchButton {
+        width: 30px;
+    }
+}
+
+div#mw-panel {
+    position: static;
+    width: auto;
+    padding-top: 0;
+}
+#mw-panel {
+    padding-left: 0 !important;
+}
+
+div#mw-head,
+#p-personal {
+    position: static;
+}
+div#mw-head {
+    background-color: @background-color-gray;
+    border-bottom: 1px solid @border-color-gray;
+
+    > .container {
+        .clearfix();
+
+        &:first-child:after {
+            border-bottom: 1px solid @border-color-gray;
+        }
+    }
+}
+#p-personal {
+    float: right;
+    .clearfix();
+
+    ul {
+        padding-left: 0;
+        float: right;
+    }
+
+    li {
+        font-size: 1rem;
+        margin-top: 0;
+        margin-left: 0;
+        margin-bottom: 0;
+        line-height: @base-line-height;
+        padding: 8px 10px;
+    }
+}
+#pt-userpage,
+#pt-anonuserpage {
+    background-position: left center;
+}
+
+div.vectorTabs {
+    height: auto;
+
+    ul li,
+    li.selected {
+        background-color: transparent;
+        background-image: none;
+    }
+
+    ul li {
+        line-height: @base-line-height;
+    }
+
+    &,
+    ul,
+    span {
+        background-image: none;
+    }
+
+    span {
+        vertical-align: bottom;
+
+        a {
+            padding: 5px 10px;
+
+            #left-navigation &,
+            #right-navigation & {
+                padding-top: 8px;
+                padding-bottom: 8px;
+            }
+        }
+    }
+
+    li a {
+        font-size: 1rem;
+        line-height: @base-line-height;
+        height: auto;
+    }
+
+    li.selected a {
+        padding-bottom: 5px !important;
+        border-bottom: 3px solid @tab-border-bottom-color;
+    }
+}
+
+div.vectorMenu {
+    div#mw-head & h3 {
+        background-image: none;
+        height: auto;
+    }
+
+    div.menu {
+        top: 100%;
+        z-index: 1000;
+    }
+
+    h3 span {
+        padding: 8px 10px;
+        font-size: 1rem;
+
+        #left-navigation &,
+        #right-navigation & {
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+    }
+
+    h3 a {
+        background-position: right center;
+        height: 100%;
+    }
+
+    li a {
+        font-size: 1rem;
+    }
+}
+
+#left-navigation {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0 !important;
+}
+#right-navigation {
+    margin-top: 0;
+}
+
+div#left-navigation,
+div#right-navigation {
+    position: static !important;
+}
+div#p-namespaces,
+div#p-views,
+div#p-variants {
+    top: 0 !important;
+}
+
+#ca-unwatch.icon a,
+#ca-watch.icon a {
+    background-position: center;
+    font-size: 0;
+    line-height: 0;
+    width: 26px;
+    height: 26px;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    margin-top: 5px;
+}
+#ca-unwatch.icon a.loading,
+#ca-watch.icon a.loading {
+    background-position: center;
+    transform-origin: center;
+}
+
+// Hide heading on the article "Main Page"
+.page-Main_Page .firstHeading {
+    display: none;
+}
+
+.mw-body {
+    margin-left: auto !important;
+    padding: 15px !important;
+    border: 0;
+    background-color: transparent;
+    flex: 1;
+}
+
+.mw-body-content {
+    font-size: 1rem;
+}
+
+.mw-body h1,
+.mw-body h2 {
+    font-family: inherit;
+}
+.mw-body h1 {
+    font-weight: 300;
+    border-bottom: 0;
+    margin-bottom: 0.25em;
+}
+.mw-body h2 {
+    padding-bottom: 0.25em;
+    margin-bottom: 0.25em;
+    border-color: @border-color-gray;
+}
+
+div#footer {
+    margin-left: 0 !important;
+    padding: 15px 0 !important;
+    background-color: @background-color-gray;
+    border-top: 1px solid @border-color-gray;
+}
